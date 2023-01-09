@@ -44,25 +44,25 @@ public class Serial_temp_humi extends Thread  {
                 {
                 	if(c == 0) {
                 		if(len == 1) {
-                    		String temp = new String(buffer,0,len);
-                    		input_temperature = 10 * Float.parseFloat(temp);
-                    	}
-                    	if(len == 6) {
-                    		String temp = new String(buffer,0,len-2);
-                    		input_temperature += Float.parseFloat(temp);
-                    		System.out.println(input_temperature);
-                    	}
+                    			String temp = new String(buffer,0,len);
+                    			input_temperature = 10 * Float.parseFloat(temp);
+                    		}
+                    		if(len == 6) {
+                    			String temp = new String(buffer,0,len-2);
+                    			input_temperature += Float.parseFloat(temp);
+                    			System.out.println(input_temperature);
+                    		}
                 	}
                 	else if(c == 1) {
                 		if(len == 1) {
-                    		String temp = new String(buffer,0,len);
-                    		input_humidity = 10 * Float.parseFloat(temp);
-                    	}
-                    	if(len == 6) {
-                    		String temp = new String(buffer,0,len-2);
-                    		input_humidity += Float.parseFloat(temp);
-                    		System.out.println(input_humidity);
-                    	}
+                    			String temp = new String(buffer,0,len);
+                    			input_humidity = 10 * Float.parseFloat(temp);
+                    		}
+                    		if(len == 6) {
+                    			String temp = new String(buffer,0,len-2);
+                    			input_humidity += Float.parseFloat(temp);
+                    			System.out.println(input_humidity);
+                    		}
                 	}
                 }
             }
@@ -133,7 +133,7 @@ public class Serial_temp_humi extends Thread  {
                         m.humi.setText(Float.toString(input_humidity));
                         int humi = 100 -((int) input_humidity);
                         m.stick2.setBounds(x+375, y+305 + humi * 4, 250, 400);
-            		}
+                    }
 
                 }
                 else
