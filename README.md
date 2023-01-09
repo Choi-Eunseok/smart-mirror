@@ -7,12 +7,41 @@
 디스플레이에 디자인 된 창을 띄워야 하므로 가장 사용하기 쉬울 것 같은 자바를 사용하였다.
 <br/>
 
-전체적인 UI를 나타내는 Main.java
+---
+#### 전체적인 UI를 나타내는 Main.java
+
 https://github.com/Choi-Eunseok/smart-mirror/blob/fef596aa2b1c574634531cefe02d9b38cded99db/SMART_MIRROR_1.8/src/Main.java#L25-L101
+
 <div align="center"><img width="20%" alt="image" src="https://user-images.githubusercontent.com/61959836/211311542-4aa678fb-c243-4c68-85b9-611e666ef903.png"></div>
 <br/>
 
-스마트 미러에 날씨를 표시하기 위해서 기상청 날씨누리에서 제공해주는 RSS서비스를 활용하였다. RSS서비스에서 는 XML의 형식으로 10분마다 일기예보를 업데이트해서 제공을 해준다. 그래서 위의 코드에서 계속해서 XML을 받 으면서 그 중에서 필요한 부분인 일주일간의 날씨, 날짜, 요일을 잘라서 메인 프로그램에 계속적으로 전송을 해주는 스레드인 RSS_weather.java
+---
+스마트 미러에 날씨를 표시하기 위해서 기상청 날씨누리에서 제공해주는 RSS서비스를 활용하였다. RSS서비스에서 는 XML의 형식으로 10분마다 일기예보를 업데이트해서 제공을 해준다.
+#### 계속해서 XML을 받으면서 그 중에서 필요한 부분인 일주일간의 날씨, 날짜, 요일을 잘라서 메인 프로그램에 계속적으로 전송을 해주는 스레드인 RSS_weather.java
 
 ▼현재의 날씨와 예정 날씨를 rss로 주는 사이트에서 그 값들만 가져오는 함수
+
 https://github.com/Choi-Eunseok/smart-mirror/blob/fef596aa2b1c574634531cefe02d9b38cded99db/SMART_MIRROR_1.8/src/RSS_weather.java#L20-L68
+
+▼계속 날씨에 관한 정보들을 가져와서 날씨에 맞는 그림으로 변경시키는 코드
+
+https://github.com/Choi-Eunseok/smart-mirror/blob/fef596aa2b1c574634531cefe02d9b38cded99db/SMART_MIRROR_1.8/src/RSS_weather.java#L71-L99
+
+---
+#### 시간을 표시하는 스레드인 ClockThread.java
+
+▼현재 시간을 나타내는 쓰레드의 코드
+
+https://github.com/Choi-Eunseok/smart-mirror/blob/fef596aa2b1c574634531cefe02d9b38cded99db/SMART_MIRROR_1.8/src/ClockThread.java#L14-L21
+
+---
+#### 온습도 센서가 연결된 아두이노와 시리얼통신을 통해 온도와 습도를 표시하는 Serial_temp_humi.java
+
+▼시리얼 통신으로 받은 신호를 온도와 습도로 바꾸는 코드
+
+https://github.com/Choi-Eunseok/smart-mirror/blob/8eb6aa716a8a3919a764879db00f1a22f7092a89/SMART_MIRROR_1.8/src/Serial_temp_humi.java#L39-L67
+
+▼온도와 습도에 따라 글자를 바꾸는 코드
+
+https://github.com/Choi-Eunseok/smart-mirror/blob/8eb6aa716a8a3919a764879db00f1a22f7092a89/SMART_MIRROR_1.8/src/Serial_temp_humi.java#L111-L138
+
